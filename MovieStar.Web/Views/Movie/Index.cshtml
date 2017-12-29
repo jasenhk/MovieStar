@@ -1,0 +1,52 @@
+﻿@model MovieStar.Data.Models.Entities.Movie
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    <li>Id: @Model.Id</li>
+    <li>Title: @Model.Title</li>
+    <li>Year: @Model.Year</li>
+</ul>
+
+@using (Html.BeginForm("Update", "Movie", FormMethod.Post, new { id = Model.Id })) {
+    @Html.HiddenFor(m => m.Id)
+    @Html.TextBoxFor(m => m.Id)
+    @Html.ValidationMessageFor(m => m.Id)
+    <br />
+    @Html.TextBoxFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+    <br />
+    @Html.TextBoxFor(m => m.Year)
+    @Html.ValidationMessageFor(m => m.Year)
+    @Html.DisplayNameFor(m => m.Year)
+    <button type="submit">Edit</button>
+}
+<option>@Model</option>
+
+<button>Foo</button>
+
+@section scripts {
+    <script>
+        $("button").on("click", function (e) {
+            e.preventDefault();
+            console.log("click");
+
+            var data = {
+                Id: 1,
+                Bars: ["a", "b"]
+            };
+            $.ajax({
+                method: "post",
+                url: "/Movie/Foo",
+                data: { json: JSON.stringify(data) },
+                dataType: "application/json"
+            })
+            .then(function (result) {
+                console.log(result);
+            });
+        });
+    </script>
+}

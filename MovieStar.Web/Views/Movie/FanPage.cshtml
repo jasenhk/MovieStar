@@ -1,0 +1,12 @@
+﻿@model MovieStar.Web.Controllers.ExtraneousViewModel
+
+@{
+    ViewBag.Title = "FanPage";
+}
+
+<h2>FanPage</h2>
+
+<strong>@Model.Date.ToString()</strong>
+
+@Html.Partial("_EasterEggForm", Model.EasterEgg)
+
