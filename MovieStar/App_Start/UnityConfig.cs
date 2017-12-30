@@ -1,6 +1,12 @@
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
 using Unity;
+using log4net;
+using MovieStar.Data;
+using MovieStar.Services;
+using Unity.AspNet.Mvc;
+using Unity.Injection;
 
 namespace MovieStar
 {
@@ -41,7 +47,10 @@ namespace MovieStar
             // container.LoadConfiguration();
 
             // TODO: Register your type's mappings here.
-            // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterInstance<ILog>(LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType));
+            container.RegisterType<IDbContext, MovieStarDbContext>(new PerRequestLifetimeManager(),
+                new InjectionConstructor("name=movieDb", new ResolvedParameter<ILog>()));
+            container.RegisterType<IMovieService, MovieService>(new PerRequestLifetimeManager());
         }
     }
 }
