@@ -12,7 +12,7 @@ namespace MovieStar.Controllers
     public class MoviesController : Controller
     {
         private Guid Guid;
-        private ILog log = LogManager.GetLogger("MoviesApiController");
+        private ILog log = LogManager.GetLogger("MoviesMvcController");
         private readonly IMovieService movieService;
 
         public MoviesController(IMovieService movieService)
