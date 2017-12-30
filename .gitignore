@@ -33,7 +33,7 @@ bld/
 tsbuild/
 
 # log4net
-[Ll]logs/
+[Ll]ogs/
 
 # Visual Studio 2015 cache/options directory
 .vs/
