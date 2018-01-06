@@ -21,12 +21,6 @@ namespace MovieStar
         {
             log.Info("Application Start");
 
-            //HttpConfiguration httpConfig = new HttpConfiguration();
-
-            //// configure Unity DI Container
-            //IUnityContainer container = MovieStar.UnityConfig.Container;
-            //httpConfig.DependencyResolver = new Unity.AspNet.WebApi.UnityHierarchialDependencyResolver(container);
-
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
