@@ -21,8 +21,14 @@ namespace MovieStar.Controllers
             this.movieService = movieService;
         }
 
-        // GET: Movies
-        public ActionResult Index(int id)
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult GetMovie(int id)
         {
             log.InfoFormat("(MVC) GET movie {0}, GUID {1}", id, this.Guid);
 

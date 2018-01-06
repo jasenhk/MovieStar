@@ -6,6 +6,9 @@ using log4net;
 
 namespace MovieStar.Data
 {
+    /// <summary>
+    /// This is just a stub to verify Dispose()
+    /// </summary>
     public class MovieStarDbContext : IDbContext, IDisposable
     {
         private ILog log;
